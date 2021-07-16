@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-back-button slot="start" defaultHref="/home"></ion-back-button>
+    <ion-title>Select Room</ion-title>
+  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-toolbar primary>
+          <ion-searchbar ngModel (ngModelChange)="searchRoom($event)" autocorrect="off"></ion-searchbar>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-list>
+          <ion-item *ngFor="let room of rooms" (click)="joinRoom(room)">
+            <ion-label>{{room.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- Add a chat room -->
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-item>
+          <ion-input type="text" placeholder="Add Room" [(ngModel)]="roomName" name="roomName"></ion-input>
+          <ion-button (click)="addRoom()" [disabled]="!roomName" fill="clear" size="large" slot="end">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

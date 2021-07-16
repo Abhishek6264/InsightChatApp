@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Chat Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-item>
+          <ion-label stacked>Set Nickname</ion-label>
+          <ion-input type="text" [(ngModel)]="nickname" placeholder="Nickname"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-button (click)="joinChat()" [disabled]="!nickname">Join Chat as {{ nickname }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
